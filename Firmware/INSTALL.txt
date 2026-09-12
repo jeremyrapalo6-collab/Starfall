@@ -1,0 +1,8 @@
+STARFALL FIRMWARE SETUP
+
+1. Flash CircuitPython onto the Seeed Studio XIAO RP2040.
+2. Copy current KMK firmware's kmk/ directory onto CIRCUITPY.
+3. Copy adafruit_ssd1306.mpy, adafruit_framebuf.mpy, and adafruit_bus_device/ into CIRCUITPY/lib/.
+4. Copy main.py to the root of CIRCUITPY.
+5. If encoder direction is backwards, swap D8 and D9 in encoder.pins.
+6. OLED address is set to 0x3C.
