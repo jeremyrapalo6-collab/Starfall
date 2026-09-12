@@ -1,0 +1,13 @@
+Item,Qty,Part / Specification,Reference / Source link,Notes
+Microcontroller,1,Seeed Studio XIAO RP2040,https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html,Required Hackpad MCU
+Mechanical switch,9,MX-compatible PCB-mount switch,https://www.cherry.de/en-us/product/mx2a,1u switches
+Diode,9,1N4148 DO-35 through-hole,https://assets.onsemi.com/pdf/datasheet/1n914-d.pdf,One per key matrix position
+Rotary encoder,1,"EC11E, 20 mm D-shaft",https://hackpad.hackclub.com/add-components,Hackpad approved encoder type
+OLED,1,0.91 in 128x32 SSD1306 I2C,https://hackpad.hackclub.com/add-components,4-pin GND/VCC/SCL/SDA module
+Keycap,9,1u MX keycaps,https://hackpad.hackclub.com/resources,9 total
+Encoder knob,1,D-shaft knob sized for EC11E,https://hackpad.hackclub.com/add-components,Visual assembly includes a placeholder knob
+M3 screw,4,M3 x 16 mm,https://hackpad.hackclub.com/resources,Top pass-through fasteners
+Heat-set insert,4,M3 x 5 x 4 mm insert,https://stardance.hackclub.com/missions/hackpad/guide,4.7 mm x 4 mm pockets in bottom
+PCB,1,"Starfall 2-layer PCB, 84.89 x 96.94 mm",https://hackpad.hackclub.com/submitting,Gerbers required in production/
+Case: black,1 set,Top.STEP + Bottom.STEP,https://hackpad.hackclub.com/submitting,3D printed
+Case: purple,1 set,Middle_Purple.STEP + Purple_Inlays.STEP,https://hackpad.hackclub.com/submitting,3D printed accent parts
