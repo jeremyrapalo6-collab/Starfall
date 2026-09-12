@@ -1,0 +1,12 @@
+# KiCad temporary / backup files
+*-backups/
+*.lck
+*.kicad_prl
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated temporary Gerber work directory
+production/gerbers_work/
