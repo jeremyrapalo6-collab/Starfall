@@ -2,6 +2,8 @@
 
 Starfall is my first hardware project. I wanted to make a macropad because it seemed cool, and I chose to use my favorite colors, black and purple, along with my group name, **LTC**. This was a cool but long project, and I learned a lot while making it.
 
+![Starfall case render](assets/case_iso.png)
+
 ## What it is
 
 Starfall is a 9-key macropad with a rotary encoder and a small OLED display. I designed it around a Seeed Studio XIAO RP2040 and made a custom PCB and case for it.
@@ -78,16 +80,39 @@ The case is split into separate printable pieces:
 
 The case also has mounting holes, M3 screw holes, heat-set insert pockets, a USB-C opening, OLED opening, encoder opening, and switch openings.
 
+### 3D case assembly
+
+![Starfall case exploded view](assets/case_exploded.png)
+
 A full-color `.glb` model is included in the `CAD` folder.
+
+## Bill of Materials
+
+| Item | Qty | Part / Specification | Notes |
+| --- | ---: | --- | --- |
+| Microcontroller | 1 | Seeed Studio XIAO RP2040 | Hackpad MCU |
+| Mechanical switch | 9 | MX-compatible PCB-mount switch | 1u switches |
+| Diode | 9 | 1N4148 DO-35 through-hole | One per key |
+| Rotary encoder | 1 | EC11E, 20 mm D-shaft | Encoder input |
+| OLED | 1 | 0.91 in 128x32 SSD1306 I2C | 4-pin module |
+| Keycap | 9 | 1u MX keycaps | 9 total |
+| Encoder knob | 1 | D-shaft knob sized for EC11E | Knob for encoder |
+| M3 screw | 4 | M3 x 16 mm | Top pass-through fasteners |
+| Heat-set insert | 4 | M3 x 5 x 4 mm insert | Fits 4.7 mm x 4 mm pockets |
+| PCB | 1 | Starfall 2-layer PCB, 84.89 x 96.94 mm | Gerbers in `production/` |
+| Case: black | 1 set | `Top.STEP` + `Bottom.STEP` | 3D printed |
+| Case: purple | 1 set | `Middle_Purple.STEP` + `Purple_Inlays.STEP` | 3D printed accents |
+
+The full BOM with source/reference links is also available in [`BOM.csv`](BOM.csv).
 
 ## Files
 
 - `PCB/` — KiCad schematic, PCB, and project files
 - `CAD/` — case and full assembly CAD files
-- `production/` — STL/STEP case parts and Gerbers
-- `Firmware/` — KMK firmware
+- `production/` — STEP/STL case parts, Gerbers, and `main.py`
+- `Firmware/` — KMK firmware source
 - `assets/` — project screenshots and graphics
-- `BOM.csv` — bill of materials
+- `BOM.csv` — bill of materials with reference links
 
 ## What I learned
 
