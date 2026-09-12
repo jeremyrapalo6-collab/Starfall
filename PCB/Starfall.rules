@@ -1,0 +1,44 @@
+
+(rules PCB Starfall_centered_macropad_layoutreroute.dsn
+  (snapAngle 
+    fortyfive_degree
+  )
+  (rule
+    (width 200.0)
+    (clearance 200.0)
+    (clearance 100.0 (type smd_to_turn_gap))
+    (clearance 50.0 (type smd))
+    (clearance 500.0 (type "board_edge"))
+  )
+  (padstack "Via[0-1]_600:300_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_600:300_um" "Via[0-1]_600:300_um" default
+  )
+  (viaRule
+    default "Via[0-1]_600:300_um"
+  )
+  (viaRule
+    default "Via[0-1]_600:300_um"
+  )
+  (class default
+    "Net-(D5-K)" /ROW2 "Net-(D9-K)" /ROW3 "Net-(D8-K)" /COL2 "Net-(D3-K)" /ROW1
+    "/ENC_A" "/ENC_B" GND /COL1 "Net-(D1-K)" /COL3 "Net-(D2-K)" "Net-(D6-K)"
+    "Net-(D7-K)" "Net-(D4-K)" +3V3 /SCL /SDA "unconnected-(U1-PA6_A10_D10_MOSI-Pad11)" "unconnected-(U1-5V-Pad14)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

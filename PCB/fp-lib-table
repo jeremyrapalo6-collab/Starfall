@@ -1,0 +1,6 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "OPSKOW") (type "KiCad") (uri "C:/Users/Jeremy/Downloads/Rotary_Encoder.pretty") (options "") (descr "") (disabled))
+	(lib (name "OLED") (type "KiCad") (uri "C:/Users/Jeremy/Downloads/OLED") (options "") (descr ""))
+	(lib (name "footprints") (type "KiCad") (uri "C:/Users/Jeremy/Downloads/kicad_care_package/footprints.pretty") (options "") (descr ""))
+)
