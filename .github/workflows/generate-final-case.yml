@@ -1,0 +1,49 @@
+name: Generate final Starfall case
+
+on:
+  push:
+    paths:
+      - 'tools/generate_final_case.py'
+      - '.github/workflows/generate-final-case.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-case:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install CAD dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core
+          python -m pip install --upgrade pip
+          pip install cadquery trimesh numpy
+
+      - name: Generate final case files
+        run: python tools/generate_final_case.py
+
+      - name: Commit generated production files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add production/Top.STEP production/Bottom.STEP production/Middle_Purple.STEP production/Purple_Inlays.STEP
+          git add production/Top.stl production/Bottom.stl production/Middle_Purple.stl production/Purple_Inlays.stl
+          git add production/CASE_PRINT_READY_CHECK.json
+          git add CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP
+          git add CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb
+          if git diff --cached --quiet; then
+            echo "Generated files are already current."
+          else
+            git commit -m "Update final Reactor Celestial print-ready case [skip ci]"
+            git push
+          fi
