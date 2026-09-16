@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'tools/generate_final_case.py'
+      - 'tools/mechanical_fit.py'
+      - 'tools/make_fit_coupons.py'
       - '.github/workflows/generate-final-case.yml'
   workflow_dispatch:
 
@@ -20,17 +22,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install CAD dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-dejavu-core
           python -m pip install --upgrade pip
-          pip install cadquery trimesh numpy
+          pip install cadquery==2.6.1 cadquery-ocp==7.8.1.1 trimesh==5.1.0
 
       - name: Generate final case files
-        run: python tools/generate_final_case.py
+        run: |
+          python tools/generate_final_case.py
+          python tools/make_fit_coupons.py
 
       - name: Commit generated production files
         run: |
@@ -39,11 +43,14 @@ jobs:
           git add production/Top.STEP production/Bottom.STEP production/Middle_Purple.STEP production/Purple_Inlays.STEP
           git add production/Top.stl production/Bottom.stl production/Middle_Purple.stl production/Purple_Inlays.stl
           git add production/CASE_PRINT_READY_CHECK.json
+          git add production/MECHANICAL_VALIDATION.json production/EXPORT_VALIDATION.json production/fit_coupons/
+          git add production/Purple_Inlays_Print_Layout.STEP production/Purple_Inlays_Print_Layout.stl
           git add CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP
           git add CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb
+          git add CAD/Starfall_fit_reference_1p6mm.STEP CAD/Starfall_Mechanical_Assembly.STEP
           if git diff --cached --quiet; then
             echo "Generated files are already current."
           else
-            git commit -m "Update final Reactor Celestial print-ready case [skip ci]"
+            git commit -m "Regenerate mechanically checked Reactor case and fit samples [skip ci]"
             git push
           fi

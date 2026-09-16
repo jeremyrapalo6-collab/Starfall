@@ -10,3 +10,5 @@ Thumbs.db
 
 # Generated temporary Gerber work directory
 production/gerbers_work/
+__pycache__/
+*.pyc
