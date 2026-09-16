@@ -1,0 +1,78 @@
+{
+  "Top": {
+    "step_solid_count": 1,
+    "step_valid": true,
+    "stl_watertight": true,
+    "step_volume_mm3": 28535.680847421583,
+    "relative_stl_volume_error": 9.87741307393736e-05,
+    "stl_bounds_mm": [
+      [
+        -56.0,
+        -58.0,
+        1.149999976158142
+      ],
+      [
+        56.0,
+        58.0,
+        5.900000095367432
+      ]
+    ]
+  },
+  "Bottom": {
+    "step_solid_count": 1,
+    "step_valid": true,
+    "stl_watertight": true,
+    "step_volume_mm3": 96622.6868032636,
+    "relative_stl_volume_error": 6.778527981346747e-06,
+    "stl_bounds_mm": [
+      [
+        -56.0,
+        -58.0,
+        -17.0
+      ],
+      [
+        56.0,
+        58.0,
+        2.0
+      ]
+    ]
+  },
+  "Middle_Purple": {
+    "step_solid_count": 1,
+    "step_valid": true,
+    "stl_watertight": true,
+    "step_volume_mm3": 5025.9849599997015,
+    "relative_stl_volume_error": 9.145203192494673e-08,
+    "stl_bounds_mm": [
+      [
+        -57.20000076293945,
+        -58.0,
+        -14.0
+      ],
+      [
+        57.20000076293945,
+        58.0,
+        2.9000000953674316
+      ]
+    ]
+  },
+  "Purple_Inlays": {
+    "step_solid_count": 29,
+    "step_valid": true,
+    "stl_watertight": true,
+    "step_volume_mm3": 336.05114379814097,
+    "relative_stl_volume_error": 0.00013537092120364348,
+    "stl_bounds_mm": [
+      [
+        -47.900001525878906,
+        -50.5,
+        5.380000114440918
+      ],
+      [
+        47.5,
+        53.599998474121094,
+        5.860000133514404
+      ]
+    ]
+  }
+}
