@@ -18,7 +18,7 @@ The bottom-right key changes between the three modes, and the OLED shows which m
 
 ## Design
 
-I wanted Starfall to have a black and purple space-themed look. The case uses black as the main color with purple accents, an **LTC** logo, a purple ring around the encoder, and custom symbols on the keycaps.
+I wanted Starfall to have a black and purple space-themed look. The final **Reactor Celestial** case uses a black shell with purple accents, moons, ringed planets, stars, purple key symbols, and **LTC** built into the large purple planet at the front. The encoder also has a purple accent ring.
 
 ## Hardware
 
@@ -71,20 +71,22 @@ VS Code shortcuts such as run, debug, format, comment, terminal, split editor, c
 
 ## Case
 
-The case is split into separate printable pieces:
+The final case is **Starfall Reactor Celestial**. It is split into separate printable pieces:
 
-- black top
-- black bottom
-- purple middle spacer
-- purple decorative inlays
+- black top — `production/Top.STEP`
+- black bottom — `production/Bottom.STEP`
+- purple middle spacer — `production/Middle_Purple.STEP`
+- purple moons, planets, stars, rails, and LTC planet — `production/Purple_Inlays.STEP`
 
-The case also has mounting holes, M3 screw holes, heat-set insert pockets, a USB-C opening, OLED opening, encoder opening, and switch openings.
+The case also has mounting holes, M3 screw holes, heat-set insert pockets, a USB-C opening, OLED opening, encoder opening, and switch openings. The small planet on the right side is positioned between the reactor rails so it does not collide with them.
 
 ### 3D case assembly
 
 ![Starfall case exploded view](assets/case_exploded.png)
 
-A full-color `.glb` model is included in the `CAD` folder.
+The final colored case assembly is `CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP`, and the full-color preview with keycaps and hardware is `CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb`.
+
+Mechanical validation results are stored in `production/CASE_PRINT_READY_CHECK.json`.
 
 ## Bill of Materials
 
@@ -108,10 +110,11 @@ The full BOM with source/reference links is also available in [`BOM.csv`](BOM.cs
 ## Files
 
 - `PCB/` — KiCad schematic, PCB, and project files
-- `CAD/` — case and full assembly CAD files
-- `production/` — STEP/STL case parts, Gerbers, and `main.py`
+- `CAD/` — case, assemblies, and full-color GLB preview
+- `production/` — final STEP/STL case parts, Gerbers, print-ready check, and `main.py`
 - `Firmware/` — KMK firmware source
 - `assets/` — project screenshots and graphics
+- `tools/` — reproducible final-case generator
 - `BOM.csv` — bill of materials with reference links
 
 ## What I learned
