@@ -1,0 +1,26 @@
+{
+  "cad_solids_valid": {
+    "Top": true,
+    "Bottom": true,
+    "Middle_Purple": true,
+    "Purple_Inlays": true
+  },
+  "pcb_cavity_mm": [
+    85.69,
+    97.74
+  ],
+  "pcb_clearance_per_side_mm": 0.4,
+  "m3_pass_through_mm": 3.4,
+  "screw_head_seat_mm": 5.8,
+  "heat_set_insert_pocket_mm": 4.7,
+  "encoder_opening_mm": 14.2,
+  "encoder_to_nearby_screw_edge_clearance_mm": 1.847,
+  "right_planet_center_mm": [
+    49.0,
+    8.5
+  ],
+  "right_planet_clearance_to_lower_rail_mm": 2.881,
+  "right_planet_clearance_to_upper_rail_mm": 2.381,
+  "usb_c_tunnel_preserved": true,
+  "switch_and_mount_coordinates_preserved": true
+}
