@@ -53,17 +53,34 @@ QUICK_OPEN = KC.LCTL(KC.P)
 
 # Matrix order is row-major: row1 col1..3, row2 col1..3, row3 col1..3.
 keyboard.keymap = [
-    [COPY, PASTE, CUT, UNDO, REDO, SELECT_ALL, SCREENSHOT, KC.MPLY, TO_GAMING],
-    [KC.N1, KC.N2, KC.N3, KC.Q, KC.E, KC.R, KC.LSFT, KC.SPC, TO_CODING],
-    [RUN_NO_DEBUG, DEBUG, FORMAT, COMMENT, TERMINAL, SPLIT_EDITOR, COMMAND_PALETTE, QUICK_OPEN, TO_EVERYDAY],
+    # Everyday
+    [
+        COPY, PASTE, CUT,
+        UNDO, REDO, SELECT_ALL,
+        SCREENSHOT, KC.MPLY, TO_GAMING,
+    ],
+    # Gaming
+    [
+        KC.N1, KC.N2, KC.N3,
+        KC.Q, KC.E, KC.R,
+        KC.LSFT, KC.SPC, TO_CODING,
+    ],
+    # Coding
+    [
+        RUN_NO_DEBUG, DEBUG, FORMAT,
+        COMMENT, TERMINAL, SPLIT_EDITOR,
+        COMMAND_PALETTE, QUICK_OPEN, TO_EVERYDAY,
+    ],
 ]
 
+# Encoder: left/right/click for each layer. Click is unused.
 encoder.map = [
     ((KC.VOLD, KC.VOLU, KC.NO),),
     ((KC.VOLD, KC.VOLU, KC.NO),),
     ((KC.LCTL(KC.PGUP), KC.LCTL(KC.PGDN), KC.NO),),
 ]
 
+# OLED is optional at runtime: keyboard still works if its library/display is absent.
 try:
     import adafruit_ssd1306
 
@@ -80,15 +97,32 @@ try:
                 print('OLED disabled:', exc)
                 self.display = None
 
-        def during_bootup(self, keyboard): self._update(keyboard)
-        def before_matrix_scan(self, keyboard): pass
-        def on_runtime_enable(self, keyboard): pass
-        def on_runtime_disable(self, keyboard): pass
-        def after_matrix_scan(self, keyboard): self._update(keyboard)
-        def before_hid_send(self, keyboard): pass
-        def after_hid_send(self, keyboard): pass
-        def on_powersave_enable(self, keyboard): pass
-        def on_powersave_disable(self, keyboard): self._update(keyboard, force=True)
+        def during_bootup(self, keyboard):
+            self._update(keyboard)
+
+        def before_matrix_scan(self, keyboard):
+            pass
+
+        def on_runtime_enable(self, keyboard):
+            pass
+
+        def on_runtime_disable(self, keyboard):
+            pass
+
+        def after_matrix_scan(self, keyboard):
+            self._update(keyboard)
+
+        def before_hid_send(self, keyboard):
+            pass
+
+        def after_hid_send(self, keyboard):
+            pass
+
+        def on_powersave_enable(self, keyboard):
+            pass
+
+        def on_powersave_disable(self, keyboard):
+            self._update(keyboard, force=True)
 
         def _update(self, keyboard, force=False):
             if self.display is None:
