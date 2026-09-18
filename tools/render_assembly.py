@@ -79,38 +79,19 @@ def render_model(size, camera, margin=70, exploded=False, background=(242, 244, 
     midpoint_y = (projected_y.max() + projected_y.min()) / 2
 
     image = Image.new("RGB", (width * SCALE, height * SCALE), background)
-    pixels = np.array(image)
-    zbuffer = np.full((height * SCALE, width * SCALE), -np.inf, dtype=np.float32)
-
-    for _, tri, color in triangles:
+    draw = ImageDraw.Draw(image)
+    # Draw back-to-front. This is much faster than the old per-pixel
+    # barycentric z-buffer and is accurate for these non-intersecting parts.
+    for _, tri, color in sorted(triangles, key=lambda item: item[0]):
         coords = np.column_stack(
             (
                 center_x + (tri @ right - midpoint_x) * render_scale,
                 center_y - (tri @ up - midpoint_y) * render_scale,
             )
         )
-        xmin, ymin = np.maximum(np.floor(coords.min(axis=0)).astype(int), [0, 0])
-        xmax, ymax = np.minimum(
-            np.ceil(coords.max(axis=0)).astype(int), [width * SCALE - 1, height * SCALE - 1]
-        )
-        if xmax < xmin or ymax < ymin:
-            continue
-        xx, yy = np.meshgrid(np.arange(xmin, xmax + 1) + 0.5, np.arange(ymin, ymax + 1) + 0.5)
-        a, b, c = coords
-        denominator = (b[1] - c[1]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[1] - c[1])
-        if abs(denominator) < 1e-9:
-            continue
-        u = ((b[1] - c[1]) * (xx - c[0]) + (c[0] - b[0]) * (yy - c[1])) / denominator
-        v = ((c[1] - a[1]) * (xx - c[0]) + (a[0] - c[0]) * (yy - c[1])) / denominator
-        w = 1 - u - v
-        depth = tri @ camera
-        zz = u * depth[0] + v * depth[1] + w * depth[2]
-        buffer = zbuffer[ymin : ymax + 1, xmin : xmax + 1]
-        mask = (u >= -1e-8) & (v >= -1e-8) & (w >= -1e-8) & (zz > buffer)
-        buffer[mask] = zz[mask]
-        pixels[ymin : ymax + 1, xmin : xmax + 1][mask] = color
+        draw.polygon([tuple(point) for point in coords], fill=color)
 
-    return Image.fromarray(pixels).resize((width, height), Image.Resampling.LANCZOS)
+    return image.resize((width, height), Image.Resampling.LANCZOS)
 
 
 def save_plain(name, camera, exploded=False):
