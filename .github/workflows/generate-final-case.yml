@@ -59,5 +59,6 @@ jobs:
             echo "Generated files are already current."
           else
             git commit -m "Regenerate mechanically checked Reactor case and fit samples [skip ci]"
+            git pull --rebase origin main
             git push
           fi
