@@ -50,6 +50,7 @@ jobs:
           git add production/Top.stl production/Bottom.stl production/Middle_Purple.stl production/Purple_Inlays.stl
           git add production/CASE_PRINT_READY_CHECK.json production/STRUCTURAL_COLLISIONS.json
           git add CAD/Starfall_Fully_Assembled.STEP CAD/Starfall_Fully_Assembled_Colored.glb assets/fully_assembled_preview.png
+          git add assets/case_iso.png assets/case_top.png assets/case_exploded.png
           git add production/MECHANICAL_VALIDATION.json production/EXPORT_VALIDATION.json production/fit_coupons/
           git add production/Purple_Inlays_Print_Layout.STEP production/Purple_Inlays_Print_Layout.stl
           git add CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP
