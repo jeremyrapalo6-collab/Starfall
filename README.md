@@ -77,7 +77,7 @@ The current case is **Starfall Celestial** (114.4 x 116 x 22.9 mm including side
 - Purple: `production/Middle_Purple.STEP` and `production/Purple_Inlays_Print_Layout.STEP` (one set of accents).
 - Matching STL files are provided. `Purple_Inlays.STEP` is the same accents in assembled positions: do not print both accent files.
 - [Fully assembled STEP](CAD/Starfall_Fully_Assembled.STEP) and [colored GLB](CAD/Starfall_Fully_Assembled_Colored.glb).
-- [Design changes and physical fit checks](DESIGN_NOTES.md), [print request guide](PRINTING.md), and [assembly instructions](CAD/MECHANICAL_NOTES.md).
+- [Design changes and physical fit checks](DESIGN_NOTES.md) and [assembly instructions](CAD/MECHANICAL_NOTES.md).
 
 The L has been shifted 0.35 mm right. The taller bottom retains M3x16 screws with recessed insert seats. The PCB layout is unchanged. Print the switch/insert coupons and check your actual cable before a full case: CAD checks do not guarantee physical fit. All files in production are current; older named case assemblies and screenshots elsewhere are legacy references.
 
