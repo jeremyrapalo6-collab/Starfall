@@ -4,7 +4,7 @@ This revision keeps the PCB layout, Reactor silhouette and celestial artwork. Th
 
 ## Corrected construction
 
-- Overall enclosure: **112 x 116 x 22.9 mm**, excluding keycaps/knob. Bottom Z=-17.00, top Z=5.90. This is 6.4 mm taller than the prior Reactor case.
+- Overall enclosure: **114.4 x 116 x 22.9 mm**, excluding keycaps/knob. Bottom Z=-17.00, top Z=5.90. This is 6.4 mm taller than the prior Reactor case.
 - PCB underside: Z=-0.70; reference thickness: **1.60 mm**. PCB outline remains 84.89 x 96.94 mm, with 0.40 mm nominal side clearance. PCB and Gerber files are unchanged.
 - Floor top: Z=-14.90, giving a 2.10 mm floor. Four 8.20 mm posts extend into that floor and form one solid with the shell. Their upper support surfaces are at Z=-0.70.
 - Upper retaining collars end at Z=1.15, leaving 0.25 mm above the nominal PCB top. They limit movement without forcing the board into an exact zero-clearance sandwich.
@@ -14,7 +14,8 @@ This revision keeps the PCB layout, Reactor silhouette and celestial artwork. Th
 - The encoder opening combines the circular shaft opening with rounded rectangular corner relief for the actual 12 x 11.6 mm body. Its decorated ring is trimmed to clear it.
 - Switch openings keep a 14.20 mm lower aperture and 16.40 mm upper aperture. The top of the retaining lip is relieved from Z=3.85 to 4.20 to clear the modeled switch transition. Square accent frames replace circular rings that overlapped switch housings.
 - Diode, OLED header and OLED flex/contact reliefs follow the updated 1.60 mm board reference, with a target 0.40 mm clearance where the remaining roof permits it.
-- USB access is widened to **18 x 8 mm** through the Reactor front wall. This accommodates a larger cable-mold envelope than the original long narrow tunnel; it does not guarantee every USB cable fits.
+- USB socket aperture: **10.2 x 5.4 mm** within a **22 x 9 mm** outer recess. The recessed face is 1.06 mm ahead of the fixed connector shell. Test the actual cable overmold.
+- OLED window: **28.4 x 10.2 mm**, above the **31.2 x 12.2 mm** underside glass clearance. The ledge clears the modeled glass/display by 0.435 mm.
 - Decorative pockets are generated from the actual insert contours with 0.18 mm XY expansion. Overlapping decorative solids are fused and details inside switch openings are removed.
 
 ## Assembly and physical checks
@@ -36,3 +37,4 @@ Current production parts: `production/Top.STEP`, `Bottom.STEP`, `Middle_Purple.S
 `CAD/build_case.py`, `CAD/Starfall_assembled.STEP`, `CAD/Starfall_case_assembly.STEP` and older case screenshots are historical. They are not the corrected production geometry. The coloured GLB includes presentation keycaps/knob, not measured hardware.
 
 Measured results are in `production/MECHANICAL_VALIDATION.json` and included in `CASE_PRINT_READY_CHECK.json`. Their status explicitly retains the physical-fit qualification above.
+
