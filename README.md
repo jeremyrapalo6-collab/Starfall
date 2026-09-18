@@ -10,9 +10,9 @@ Starfall is a 9-key macropad with a rotary encoder and a small OLED display. I d
 
 The macropad has three modes:
 
-- **Everyday** â€” shortcuts for normal computer use
-- **Gaming** â€” keys for games
-- **Coding** â€” shortcuts for VS Code and Python
+- **Everyday** - shortcuts for normal computer use
+- **Gaming** - keys for games
+- **Coding** - shortcuts for VS Code and Python
 
 The bottom-right key changes between the three modes, and the OLED shows which mode is active.
 
@@ -104,13 +104,13 @@ The full BOM with source/reference links is also available in [`BOM.csv`](BOM.cs
 
 ## Files
 
-- `PCB/` â€” KiCad schematic, PCB, and project files
-- `CAD/` â€” case, assemblies, and full-color GLB preview
-- `production/` â€” final STEP/STL case parts, Gerbers, print-ready check, and `main.py`
-- `Firmware/` â€” KMK firmware source
-- `assets/` â€” project screenshots and graphics
-- `tools/` â€” reproducible final-case generator
-- `BOM.csv` â€” bill of materials with reference links
+- `PCB/` - KiCad schematic, PCB, and project files
+- `CAD/` - case, assemblies, and full-color GLB preview
+- `production/` - final STEP/STL case parts, Gerbers, print-ready check, and `main.py`
+- `Firmware/` - KMK firmware source
+- `assets/` - project screenshots and graphics
+- `tools/` - reproducible final-case generator
+- `BOM.csv` - bill of materials with reference links
 
 ## What I learned
 
