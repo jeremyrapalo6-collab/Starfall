@@ -8,8 +8,8 @@ root=Path(__file__).resolve().parents[1]; out=root/'assets/fully_assembled_previ
 W,H,S=800,1020,2
 im=Image.new('RGB',(W*S,H*S),(242,244,248));draw=ImageDraw.Draw(im)
 def font(n):return ImageFont.truetype(('C:/Windows/Fonts/arial.ttf' if Path('C:/Windows/Fonts/arial.ttf').exists() else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'),n*S)
-draw.text((60*S,35*S),'Starfall Â· Celestial Edition',(27,31,42),font=font(35))
-draw.text((60*S,84*S),'Taller bottom for the supplied M3 Ã— 16 screws',(67,75,91),font=font(23))
+draw.text((60*S,35*S),'Starfall - Celestial Edition',(27,31,42),font=font(35))
+draw.text((60*S,84*S),'Taller bottom for the supplied M3 x 16 screws',(67,75,91),font=font(23))
 cam=np.array([1.,-1.3,1.6]);cam/=np.linalg.norm(cam)
 right=np.cross([0,0,1],cam);right/=np.linalg.norm(right);up=np.cross(cam,right)
 light=np.array([-.2,-.5,1]);light/=np.linalg.norm(light)
@@ -49,7 +49,7 @@ for idx,exploded in enumerate([False]):
         zb[mask]=zz[mask];pixels[ymin:ymax+1,xmin:xmax+1][mask]=color
 im=Image.fromarray(pixels);draw=ImageDraw.Draw(im)
 for idx in range(1):draw.text(((60+idx*800)*S,155*S),'ASSEMBLED' if idx==0 else 'EXPLODED',(96,67,140),font=font(18))
-draw.text((60*S,919*S),'114.4 Ã— 116 Ã— 22.9 mm  Â·  PCB layout preserved',(37,42,55),font=font(23))
+draw.text((60*S,919*S),'114.4 x 116 x 22.9 mm  -  PCB layout preserved',(37,42,55),font=font(23))
 draw.text((60*S,958*S),'Corrected case with electronics, keycaps and knob.',(89,96,110),font=font(18))
 im.resize((W,H),Image.Resampling.LANCZOS).save(out)
 print(out)
