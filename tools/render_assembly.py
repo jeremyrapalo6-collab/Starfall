@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 MODEL = ROOT / "CAD" / "Starfall_Fully_Assembled_Colored.glb"
-SCALE = 2
+SCALE = 1
 
 
 def font(size):
