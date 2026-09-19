@@ -93,6 +93,14 @@ Automated CAD results: [mechanical](production/MECHANICAL_VALIDATION.json), [exp
 
 These views are rendered from the current assembly. Keycaps, legends and knob are illustrative accessories. See [asset descriptions](assets/SCREENSHOTS.md).
 
+### Printable Starfall encoder knob
+
+[Download the knob print pack](production/knob/Starfall-Knob-Print-Pack.zip) or browse [individual STL/STEP files and instructions](production/knob/README.md).
+
+![Black fluted knob with purple star](production/knob/Knob_Preview.png)
+
+Print `Knob_Black.stl` in black and `Knob_Star_Purple.stl` in purple. Test `Dshaft_sample_6p2mm.stl` on the actual encoder first. The 6.1 and 6.3 mm samples provide fit alternatives; change the knob bore if needed before printing. Modeled clearances pass, but physical shaft fit and push travel require testing. Full-case previews still show the previous illustrative knob; the files in `production/knob/` are the printable design.
+
 ## Bill of Materials
 
 | Item | Qty | Part / Specification | Notes |

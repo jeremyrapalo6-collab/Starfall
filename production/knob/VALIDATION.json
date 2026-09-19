@@ -1,0 +1,14 @@
+{
+  "status": "CAD_CHECKS_PASSED_PHYSICAL_SHAFT_FIT_PENDING",
+  "diameter_mm": 16,
+  "height_mm": 14.2,
+  "nominal_shaft_mm": 6,
+  "bore_diameter_mm": 6.2,
+  "bore_flat_y_mm": 2.5,
+  "shaft_flat_y_mm": 2.4,
+  "bore_depth_mm": 12.4,
+  "collar_relief_diameter_mm": 9,
+  "collar_relief_depth_mm": 3.8,
+  "downward_envelope_checked_mm": 1.1,
+  "collisions": []
+}
