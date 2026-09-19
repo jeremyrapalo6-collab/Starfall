@@ -17,7 +17,9 @@ for q in e.Solids():
 parts.append((cq.Compound.makeCompound(other),'Electronics',(44,106,74,255)))
 parts.append((cq.Compound.makeCompound(glass),'Actual_OLED_Glass',(5,6,12,255)))
 caps,pcb,bezel,screen,txt,knob,kring,screws=ns['render_parts']()
-knob=ns['cyl'](15.8,8.0,13.3,*ns['ENC_CENTER']).union(ns['cyl'](15.0,21.3,.9,*ns['ENC_CENTER']))
+knob=cq.importers.importStep(str(r/'production/knob/Knob_Black.STEP')).val().translate((29.715,40.01,9.0))
+knob_star=cq.importers.importStep(str(r/'production/knob/Knob_Star_Purple.STEP')).val().translate((29.715,40.01,22.66))
+parts.append((knob_star,'Encoder_Knob_Star',(183,67,255,255)))
 txt=ns['text_solid']('STARFALL',2.4,.10,-16.49,39.46,3.78)
 for s,n,c in [(caps,'Keycaps',(20,20,28,255)),(knob,'Encoder_Knob',(20,20,28,255)),(screws,'M3_Screws',(175,175,190,255)),(txt,'OLED_STARFALL',(230,150,255,255))]:
  parts.append((s.val() if isinstance(s,cq.Workplane) else s,n,c))
@@ -51,3 +53,4 @@ copyfile(r / "CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP", r / "CAD/
 copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "CAD/Starfall_render_colored.glb")
 copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb")
 copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "assets/Starfall_render_colored.glb")
+
