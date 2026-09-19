@@ -43,3 +43,11 @@ assert check.isValid()
 assert len(check.Solids())==sum(len(s.Solids()) for s,n,c in parts)
 print('Valid STEP:',len(check.Solids()),'solids; GLB:',len(scene.geometry),'groups')
 
+
+# Keep established download names synchronized with the current assembly.
+from shutil import copyfile
+copyfile(r / "CAD/Starfall_Fully_Assembled.STEP", r / "CAD/Starfall_assembled.STEP")
+copyfile(r / "CAD/Starfall_Reactor_Celestial_FINAL_COLORED_CASE.STEP", r / "CAD/Starfall_case_assembly.STEP")
+copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "CAD/Starfall_render_colored.glb")
+copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb")
+copyfile(r / "CAD/Starfall_Fully_Assembled_Colored.glb", r / "assets/Starfall_render_colored.glb")
