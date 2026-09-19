@@ -79,17 +79,28 @@ def render_model(size, camera, margin=70, exploded=False, background=(242, 244, 
     midpoint_y = (projected_y.max() + projected_y.min()) / 2
 
     image = Image.new("RGB", (width * SCALE, height * SCALE), background)
-    draw = ImageDraw.Draw(image)
-    # Draw back-to-front. This is much faster than the old per-pixel
-    # barycentric z-buffer and is accurate for these non-intersecting parts.
-    for _, tri, color in sorted(triangles, key=lambda item: item[0]):
-        coords = np.column_stack(
-            (
-                center_x + (tri @ right - midpoint_x) * render_scale,
-                center_y - (tri @ up - midpoint_y) * render_scale,
-            )
-        )
-        draw.polygon([tuple(point) for point in coords], fill=color)
+    pixels=np.array(image)
+    depth=np.full((height*SCALE,width*SCALE),-np.inf,dtype=np.float64)
+    # Resolve visibility at every pixel, not by triangle-centroid ordering.
+    for _,tri,color in triangles:
+        coords=np.column_stack((center_x+(tri@right-midpoint_x)*render_scale,
+                                center_y-(tri@up-midpoint_y)*render_scale))
+        xmin,ymin=np.maximum(np.floor(coords.min(axis=0)).astype(int),[0,0])
+        xmax,ymax=np.minimum(np.ceil(coords.max(axis=0)).astype(int),[width*SCALE-1,height*SCALE-1])
+        if xmax<xmin or ymax<ymin:continue
+        xx,yy=np.meshgrid(np.arange(xmin,xmax+1)+.5,np.arange(ymin,ymax+1)+.5)
+        a,b,c=coords
+        den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+        if abs(den)<1e-12:continue
+        u=((b[1]-c[1])*(xx-c[0])+(c[0]-b[0])*(yy-c[1]))/den
+        v=((c[1]-a[1])*(xx-c[0])+(a[0]-c[0])*(yy-c[1]))/den
+        w=1-u-v
+        z=tri@camera; zz=u*z[0]+v*z[1]+w*z[2]
+        target=depth[ymin:ymax+1,xmin:xmax+1]
+        mask=(u>=-1e-9)&(v>=-1e-9)&(w>=-1e-9)&(zz>target)
+        target[mask]=zz[mask]
+        pixels[ymin:ymax+1,xmin:xmax+1][mask]=color
+    image=Image.fromarray(pixels)
 
     return image.resize((width, height), Image.Resampling.LANCZOS)
 
@@ -120,3 +131,4 @@ save_preview()
 save_plain("case_iso.png", [1.0, -1.3, 1.6])
 save_plain("case_top.png", [0.0, 0.0, 1.0])
 save_plain("case_exploded.png", [1.0, -1.3, 1.35], exploded=True)
+
