@@ -1,0 +1,35 @@
+name: Refresh assembled case previews
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-previews.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core
+          pip install cadquery==2.6.1 cadquery-ocp==7.8.1.1 trimesh==5.1.0 pillow
+      - name: Build and validate assemblies and render views
+        run: |
+          python tools/make_full_assembly.py
+          python tools/render_assembly.py
+      - name: Publish generated previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CAD/Starfall_Fully_Assembled.STEP CAD/Starfall_Fully_Assembled_Colored.glb CAD/Starfall_assembled.STEP CAD/Starfall_case_assembly.STEP CAD/Starfall_render_colored.glb CAD/Starfall_Reactor_Celestial_FINAL_FULL_COLOR.glb
+          git add assets/Starfall_render_colored.glb assets/case_iso.png assets/case_top.png assets/case_exploded.png assets/fully_assembled_preview.png
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh Starfall case images and assemblies with printable knob [skip ci]"
+            git push
+          fi
