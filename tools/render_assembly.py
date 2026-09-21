@@ -31,7 +31,7 @@ def basis(camera):
 
 
 def exploded_offset(name):
-    if name in {"Top", "Purple_Inlays", "Keycaps", "Encoder_Knob", "M3_Screws", "Illustrative_Keycap_Legends"}:
+    if name in {"Top", "Purple_Inlays", "Keycaps", "Encoder_Knob", "Encoder_Knob_Star", "M3_Screws", "Illustrative_Keycap_Legends"}:
         return 26.0
     if name in {"Actual_OLED_Glass", "OLED_STARFALL"}:
         return 17.0
@@ -131,4 +131,5 @@ save_preview()
 save_plain("case_iso.png", [1.0, -1.3, 1.6])
 save_plain("case_top.png", [0.0, 0.0, 1.0])
 save_plain("case_exploded.png", [1.0, -1.3, 1.35], exploded=True)
+
 

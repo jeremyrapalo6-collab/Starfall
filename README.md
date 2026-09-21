@@ -18,7 +18,7 @@ The bottom-right key changes between the three modes, and the OLED shows which m
 
 ## Design
 
-The Celestial case pairs a black shell with purple side trusses, stars, a crescent and a bold slanted LTC logo. It has a stepped OLED surround and a recessed USB-C opening. Keycap symbols and knob in the preview are illustrative accessories.
+The Celestial case pairs a black shell with purple side trusses, stars, a crescent and a bold slanted LTC logo. It has a stepped OLED surround and a recessed USB-C opening. Keycap symbols are illustrative; the preview includes the printable Starfall star knob.
 
 ## Hardware
 
@@ -91,7 +91,9 @@ Automated CAD results: [mechanical](production/MECHANICAL_VALIDATION.json), [exp
 
 ![Current exploded assembly](assets/case_exploded.png)
 
-These views are rendered from the current assembly. Keycaps, legends and knob are illustrative accessories. See [asset descriptions](assets/SCREENSHOTS.md).
+These views are rendered from the current assembly. Keycaps and legends are illustrative accessories; the knob matches the printable files. See [asset descriptions](assets/SCREENSHOTS.md).
+
+[Download the complete printer ZIP (case + knob + samples)](production/Starfall-Complete-Printer-Pack.zip).
 
 ### Printable Starfall encoder knob
 
@@ -99,7 +101,7 @@ These views are rendered from the current assembly. Keycaps, legends and knob ar
 
 ![Black fluted knob with purple star](production/knob/Knob_Preview.png)
 
-Print `Knob_Black.stl` in black and `Knob_Star_Purple.stl` in purple. Test `Dshaft_sample_6p2mm.stl` on the actual encoder first. The 6.1 and 6.3 mm samples provide fit alternatives; change the knob bore if needed before printing. Modeled clearances pass, but physical shaft fit and push travel require testing. Full-case previews still show the previous illustrative knob; the files in `production/knob/` are the printable design.
+Print `Knob_Black.stl` in black and `Knob_Star_Purple.stl` in purple. Test `Dshaft_sample_6p2mm.stl` on the actual encoder first. The 6.1 and 6.3 mm samples provide fit alternatives; change the knob bore if needed before printing. Modeled clearances pass, but physical shaft fit and push travel require testing. Full-case previews and assembled STEP/GLB files now include this printable star knob.
 
 ## Bill of Materials
 
@@ -133,3 +135,4 @@ The full BOM with source/reference links is also available in [`BOM.csv`](BOM.cs
 ## What I learned
 
 This was my first project, so I learned a lot about KiCad, schematics, PCB routing, key matrices, diodes, 3D models, case design, Gerbers, and firmware. It took a while, but seeing the whole project come together was worth it.
+
